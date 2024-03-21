@@ -10,7 +10,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class Runner {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("org.example");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+                "org.example.importer", "org.example.warehouse", "org.example.shopper"
+        );
         Warehouse warehouse = context.getBean(Warehouse.class);
         warehouse.addWorker(new Worker("Миша"));
         warehouse.addWorker(new Worker("Зеля"));
